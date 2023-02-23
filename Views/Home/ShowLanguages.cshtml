@@ -1,0 +1,14 @@
+﻿@model MVC.ViewModels.Home.ShowLanguagesViewModel
+
+
+<h2>Available languages</h2>
+
+<div class="row">
+    <div class="col-xs-6">
+        @Html.ListBox("lang", Model.CulturesList)
+    </div>
+    <div class="col-xs-6">
+        @Html.DropDownList("lang2", Model.CulturesList)
+    </div>
+</div>
+

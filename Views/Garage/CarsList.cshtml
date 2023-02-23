@@ -1,0 +1,17 @@
+﻿@model MVC.ViewModels.Garage.CarsListViewModel
+
+<h2>Áll Cars</h2>
+@Html.ListBox("carsList", Model.CarsList)
+
+<h2>Fastest Car</h2>
+<dl>
+    <dt>ID</dt>
+    <dt>@Model.FastestCar.ID</dt>
+    <dt>Model</dt>
+    <dt>@Model.FastestCar.Model</dt>
+    <dt>Max Speed</dt>
+    <dt>@Model.FastestCar.MaxSpeed</dt>
+</dl>
+
+@*Tilbage til Car.cs i Model*@
+

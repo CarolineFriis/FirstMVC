@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Startup</h2>
+        <p>New to the store? Give yourself a treat from the shop!</p>
+        <p>We can deliver products to your door by @DateTime.Now.AddDays(1).ToLongDateString().</p>
+      
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-8">
+            @using (Html.BeginForm())
+            {
+                @Html.TextBox("searchCriteria")
+                <input type="submit" value="Find products" />
+            }
+        </div>
+        <h2>Our products</h2>
+        <table class="table-striped table-bordered table-responsive">
+            @foreach (var product in Model)
+            {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@Html.ActionLink("Details", "Details", new { id = product.ID })</td>
+                <td><img src="@Url.Action("Picture", new { id = product.ID})" /></td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
